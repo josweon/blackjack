@@ -25,13 +25,7 @@ public class Card {
         if (faceUp) {
             // this is the string value of the card
             // i.e. A, K, Q, J, 10, 9 ...
-            String result  = switch(this.value) {
-                case "2","3","4","5","6","7","8","9" -> this.value;
-                case "10","J","Q","K" -> "10";
-                case "A" -> "11";
-                default -> "#";
-            };
-            return result;
+            return value;
         } else {
             return "#";
         }
@@ -44,10 +38,19 @@ public class Card {
             // A = 11
             // K, Q, J = 10
             // all numeric cards are equal to their face value
+            switch(this.value) {
+                case "2", "3", "4", "5", "6", "7", "8", "9" -> {
+                    return Integer.parseInt(this.value);
+                }
+                case "10","J","Q","K" -> {
+                    return 10;
+                }
+                case "A" -> {return 11;}
+                default -> {return 0;}
+            }
         } else {
             return 0;
         }
-        return 0;
     }
 
     public boolean isFaceUp(){
