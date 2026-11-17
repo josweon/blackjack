@@ -25,7 +25,13 @@ public class Card {
         if (faceUp) {
             // this is the string value of the card
             // i.e. A, K, Q, J, 10, 9 ...
-            return value;
+            String result  = switch(this.value) {
+                case "2","3","4","5","6","7","8","9" -> this.value;
+                case "10","J","Q","K" -> "10";
+                case "A" -> "11";
+                default -> "#";
+            };
+            return result;
         } else {
             return "#";
         }
