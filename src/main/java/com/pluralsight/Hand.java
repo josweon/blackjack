@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 public class Hand {
     private ArrayList<Card> cards;
+    private String player;
 
-    public Hand(){
+    public Hand(String player){
+        this.player = player;
         cards = new ArrayList<>();
     }
 
@@ -17,6 +19,20 @@ public class Hand {
 
     public int getSize(){
         return cards.size();
+    }
+
+    public String getPlayer(){
+        return this.player;
+    }
+
+    public String revealHand() {
+        String hand = "";
+        for (Card c: this.cards) {
+            c.flip();
+            hand += c.getSuit() + "." + c.getValue() + ",";
+            c.flip();
+        }
+        return hand;
     }
 
     // The Hand uses the methods of each card to determine

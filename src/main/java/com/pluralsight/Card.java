@@ -34,7 +34,7 @@ public class Card {
     public int getPointValue() {
         // only return the value if the card is face up
         if (faceUp) {
-            // @todo determine point value and return it
+            // @done determine point value and return it
             // A = 11
             // K, Q, J = 10
             // all numeric cards are equal to their face value
